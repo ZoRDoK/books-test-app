@@ -1,8 +1,9 @@
 **Overview**
 
-Api REST service can add and update database of authors and books and search by them. 
+Api REST service is able to add and update database of authors and books. 
+You can search the book table
 
-Database store two tables:
+Database contains two tables:
 
 * authors: id, fullname
 * books: id, author_id, title, description, published_at, image_url
@@ -29,8 +30,8 @@ npm i
 sudo docker-compose up
 ```
 
-Containers will start, thus docker-compose will run database generation which takes a few seconds. 
-After this linter and jest tests will be run.
+Containers will start, after that docker-compose will run database generation which takes a few seconds. 
+After this tests will be run.
 When tests pass, the REST API service will be established on port 3000
 
 You'll be able to connect to database after the service starts. Mysql will listen on port 13306.
@@ -60,5 +61,5 @@ You'll be able to connect to database after the service starts. Mysql will liste
 **Troubleshooting**
 
 Check if you have services running on ports 3000 and 13306.
-Shutdown them or change ports on docker-compose.yml
+Shutdown them or change ports in docker-compose.yml
  
