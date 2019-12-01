@@ -40,7 +40,7 @@ You'll be able to connect to database after the service starts. Mysql will liste
 * GET / 
 > returns 200, for a checking purpose
 * POST /books/search
-```json
+```
  {
    "filters": {
      "word": string, // by title and description in the books
