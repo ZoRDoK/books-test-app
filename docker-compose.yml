@@ -1,0 +1,33 @@
+version: '3'
+services:
+  redis:
+    image: redis
+    volumes:
+      - data:/data
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=psw
+      - MYSQL_DATABASE=myapp
+    volumes:
+      - data:/var/lib/mysql
+    command: --innodb-use-native-aio=0
+    ports:
+    - "13306:3306"
+
+  application:
+    image: node:12
+    working_dir: /usr/src/myapp
+    volumes:
+      - ./:/usr/src/myapp
+    ports:
+      - "3000:3000"
+    command: npm run start
+    depends_on:
+      - mysql
+      - redis
+
+volumes:
+  data:
+
